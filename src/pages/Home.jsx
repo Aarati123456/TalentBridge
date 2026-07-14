@@ -3,7 +3,7 @@ import Navbar from "../components/layout/Navbar";
 import Hero from "../components/home/Hero";
 import SearchSection from "../components/home/SearchSection";
 import TalentCategories from "../components/home/TalentCategories";
-
+import FeaturedTalents from "../components/home/FeaturedTalents";
 const Home = () => {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -17,11 +17,7 @@ const Home = () => {
       <SearchSection /> 
 
       {/* Featured Talents */}
-      <section className="py-16 flex items-center justify-center bg-gray-100">
-        <h1 className="text-4xl font-bold">
-          Featured Talents
-        </h1>
-      </section>
+      <FeaturedTalents />
 
      {/* Talent Categories */} 
      <TalentCategories />
