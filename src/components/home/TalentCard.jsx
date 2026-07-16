@@ -9,31 +9,53 @@ const TalentCard = ({
   category,
   likes,
   rating,
+  trending = false,
 }) => {
   return (
     <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
 
-      {/* Talent Image */}
-      <img
-        src={image}
-        alt={title}
-        className="w-full h-52 object-cover"
-      />
+      {/* Image */}
+      <div className="relative">
+
+        <div className="relative">
+  <img
+    src={image}
+    alt={title}
+    className="w-full h-52 object-cover"
+  />
+
+  {trending && (
+    <span className="absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+      🔥 Trending
+    </span>
+  )}
+</div>
+
+        {/* Trending Badge */}
+        {trending && (
+          <span className="absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+            🔥 Trending
+          </span>
+        )}
+
+      </div>
 
       <div className="p-5">
 
         {/* User */}
         <div className="flex items-center gap-3 mb-4">
+
           <img
             src={avatar}
             alt={name}
-            className="w-12 h-12 rounded-full"
+            className="w-12 h-12 rounded-full object-cover"
           />
 
           <div>
             <h3 className="font-semibold">{name}</h3>
             <p className="text-sm text-gray-500">{title}</p>
           </div>
+
         </div>
 
         {/* Category */}
@@ -54,7 +76,7 @@ const TalentCard = ({
         </div>
 
         {/* Button */}
-        <button className="mt-5 w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700">
+        <button className="mt-5 w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition">
           View Details
         </button>
 
