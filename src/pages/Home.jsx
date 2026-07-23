@@ -5,6 +5,7 @@ import SearchSection from "../components/home/SearchSection";
 import TalentCategories from "../components/home/TalentCategories";
 import FeaturedTalents from "../components/home/FeaturedTalents";
 import TrendingTalents from "../components/home/TrendingTalents";
+import WhyChoose from "../components/home/WhyChoose";
 const Home = () => {
   return (
     <div className="min-h-screen bg-gray-50">
