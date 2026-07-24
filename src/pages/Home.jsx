@@ -7,6 +7,7 @@ import FeaturedTalents from "../components/home/FeaturedTalents";
 import TrendingTalents from "../components/home/TrendingTalents";
 import WhyChoose from "../components/home/WhyChoose";
 import CallToAction from "../components/home/CallToAction";
+
 const Home = () => {
   return (
     <div className="min-h-screen bg-gray-50">
