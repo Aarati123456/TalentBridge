@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+<Link to="/register">Register</Link>
+
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
