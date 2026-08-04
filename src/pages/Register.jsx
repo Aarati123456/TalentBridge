@@ -1,112 +1,218 @@
-const handleSubmit = (e) => {
-  e.preventDefault();
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-  let newErrors = {};
+const Register = () => {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
-  if (!formData.fullName.trim()) {
-    newErrors.fullName = "Full name is required";
-  }
+  const [errors, setErrors] = useState({});
 
-  if (!formData.username.trim()) {
-    newErrors.username = "Username is required";
-  }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
-  if (!formData.email.trim()) {
-    newErrors.email = "Email is required";
-  } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-    newErrors.email = "Please enter a valid email";
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  if (!formData.password) {
-    newErrors.password = "Password is required";
-  } else if (formData.password.length < 8) {
-    newErrors.password = "Password must be at least 8 characters";
-  }
+    let newErrors = {};
 
-  if (!formData.confirmPassword) {
-    newErrors.confirmPassword = "Confirm password is required";
-  } else if (formData.password !== formData.confirmPassword) {
-    newErrors.confirmPassword = "Passwords do not match";
-  }
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = "Full name is required";
+    }
 
-  setErrors(newErrors);
+    if (!formData.username.trim()) {
+      newErrors.username = "Username is required";
+    }
 
-  if (Object.keys(newErrors).length === 0) {
-    alert("Registration Successful!");
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email";
+    }
 
-    console.log(formData);
+    if (!formData.password) {
+      newErrors.password = "Password is required";
+    } else if (formData.password.length < 8) {
+      newErrors.password = "Password must be at least 8 characters";
+    }
 
-    setFormData({
-      fullName: "",
-      username: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-    });
+    if (!formData.confirmPassword) {
+      newErrors.confirmPassword = "Confirm password is required";
+    } else if (formData.password !== formData.confirmPassword) {
+      newErrors.confirmPassword = "Passwords do not match";
+    }
 
-    setErrors({});
-  }
-};  
-return (
+    setErrors(newErrors);
 
-<div className="min-h-screen ...">
+    if (Object.keys(newErrors).length === 0) {
+      alert("Registration Successful!");
 
-...
-return (
+      console.log(formData);
 
-  <div className="min-h-screen">
+      setFormData({
+        fullName: "",
+        username: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      });
 
-    <div>
+      setErrors({});
+    }
+  };
 
-      <form
-        onSubmit={handleSubmit}
-        className="mt-8 space-y-5"
-      >
+  const inputClass =
+    "w-full rounded-xl border py-3 px-4 focus:outline-none focus:ring-2 focus:ring-blue-600";
 
-        {/* यहाँ Full Name */}
+  return (
+    <div className="min-h-screen md:flex">
+      {/* Left side / Image */}
+      <div className="hidden md:block md:w-1/2 bg-cover bg-center">
+        <img
+          src="/assets/Register.png"
+          alt="Register"
+          className="w-full h-full object-cover"
+        />
+      </div>
 
-        {/* यहाँ Username */}
+      {/* Right side / Form */}
+      <div className="md:w-1/2 flex items-center justify-center p-6">
+        <div className="w-full max-w-md">
+          <h2 className="text-3xl font-bold text-gray-800 mb-2">
+            Create Account
+          </h2>
+          <p className="text-gray-500 mb-6">
+            Join TalentBridge to explore opportunities.
+          </p>
 
-        {/* यहाँ Email */}
+          <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+            {/* Full Name */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Full Name
+              </label>
+              <input
+                type="text"
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleChange}
+                placeholder="Enter your full name"
+                className={inputClass}
+              />
+              {errors.fullName && (
+                <p className="text-red-500 text-sm mt-1">{errors.fullName}</p>
+              )}
+            </div>
 
-        {/* यहाँ Password */}
+            {/* Username */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Username
+              </label>
+              <input
+                type="text"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                placeholder="Choose a username"
+                className={inputClass}
+              />
+              {errors.username && (
+                <p className="text-red-500 text-sm mt-1">{errors.username}</p>
+              )}
+            </div>
 
-        {/* यहाँ Confirm Password */}
+            {/* Email */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Enter your email"
+                className={inputClass}
+              />
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+              )}
+            </div>
 
-        <button
-          type="submit"
-          className="
-            w-full
-            rounded-xl
-            bg-blue-600
-            hover:bg-blue-700
-            py-3
-            text-white
-            font-semibold
-          "
-        >
-          Create Account
-        </button>
+            {/* Password */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Password
+              </label>
+              <input
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="At least 8 characters"
+                className={inputClass}
+              />
+              {errors.password && (
+                <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+              )}
+            </div>
 
-        <p className="text-center mt-5">
+            {/* Confirm Password */}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Confirm Password
+              </label>
+              <input
+                type="password"
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                placeholder="Re-enter your password"
+                className={inputClass}
+              />
+              {errors.confirmPassword && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.confirmPassword}
+                </p>
+              )}
+            </div>
 
-          Already have an account?
+            <button
+              type="submit"
+              className="
+                w-full
+                rounded-xl
+                bg-blue-600
+                hover:bg-blue-700
+                py-3
+                text-white
+                font-semibold
+              "
+            >
+              Create Account
+            </button>
 
-          <Link
-            to="/login"
-            className="text-blue-600 ml-2 font-semibold"
-          >
-            Login
-          </Link>
-
-        </p>
-
-      </form>
-
+            <p className="text-center mt-5">
+              Already have an account?
+              <Link to="/login" className="text-blue-600 ml-2 font-semibold">
+                Login
+              </Link>
+            </p>
+          </form>
+        </div>
+      </div>
     </div>
-
-  </div>
-
-);
+  );
+};
 
 export default Register;
