@@ -28,3 +28,25 @@ function Login() {
       [e.target.name]: "",
     });
   };
+    const handleSubmit = (e) => {
+    e.preventDefault();
+
+    let newErrors = {};
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Enter a valid email";
+    }
+
+    if (!formData.password) {
+      newErrors.password = "Password is required";
+    }
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length === 0) {
+      alert("Login Successful!");
+      console.log(formData);
+    }
+  };
