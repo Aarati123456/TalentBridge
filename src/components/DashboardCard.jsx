@@ -29,3 +29,37 @@ function Dashboard() {
         ))}
 
       </div>
+      {/* Recent Talents */}
+
+      <div className="flex justify-between items-center mt-12">
+
+        <h2 className="text-3xl font-bold">
+          Recent Talents
+        </h2>
+
+        <Link
+          to="/upload"
+          className="bg-blue-600 text-white px-5 py-3 rounded-xl hover:bg-blue-700"
+        >
+          + Upload Talent
+        </Link>
+
+      </div>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+
+        {recentTalents.map((talent) => (
+          <RecentTalentCard
+            key={talent.id}
+            title={talent.title}
+            user={talent.user}
+            category={talent.category}
+          />
+        ))}
+
+      </div>
+           </div>
+  );
+}
+
+export default Dashboard;
