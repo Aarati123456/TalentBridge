@@ -84,24 +84,20 @@ function Login() {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Email */}
+{/* Email */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-3">
               Email
             </label>
             <div className="relative">
-              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Enter your email"
-                className="w-full h-14 rounded-xl border border-gray-300 py-3 pl-12 pr-12 text-base placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 bg-slate-50 focus:bg-white transition-colors"
+                className="w-full h-14 rounded-xl border border-gray-300 py-3 px-4 text-base placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 bg-slate-50 focus:bg-white transition-colors"
               />
-              {formData.email && !errors.email && (
-                <CheckCircle2 className="absolute right-4 top-1/2 -translate-y-1/2 text-green-500 w-5 h-5" />
-              )}
             </div>
             {errors.email ? (
               <p className="text-red-500 text-sm mt-2">{errors.email}</p>
@@ -112,18 +108,17 @@ function Login() {
 
           {/* Password */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-3">
               Password
             </label>
             <div className="relative">
-              <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
                 type={showPassword ? "text" : "password"}
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Enter your password"
-                className="w-full h-14 rounded-xl border border-gray-300 py-3 pl-12 pr-12 text-base placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 bg-slate-50 focus:bg-white transition-colors"
+                className="w-full h-14 rounded-xl border border-gray-300 py-3 pl-4 pr-12 text-base placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 bg-slate-50 focus:bg-white transition-colors"
               />
               <button
                 type="button"
@@ -141,7 +136,7 @@ function Login() {
           </div>
 
           {/* Remember Me + Forgot Password */}
-          <div className="flex items-center justify-between pt-1">
+          <div className="flex items-center justify-between pt-3 pb-1 mb-3">
             <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
               <input
                 type="checkbox"
