@@ -135,8 +135,8 @@ function Login() {
             ) : null}
           </div>
 
-          {/* Remember Me + Forgot Password */}
-          <div className="flex items-center justify-between pt-3 pb-1 mb-3">
+{/* Remember Me + Forgot Password */}
+          <div className="flex items-center justify-between py-5 pr-10 mb-5">
             <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
               <input
                 type="checkbox"
