@@ -1,7 +1,6 @@
-import { useState } from "react";
+limport { useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  Mail,
   Lock,
   Eye,
   EyeOff,
@@ -53,41 +52,40 @@ function Login() {
     }
   };
     return (
-    <div className="min-h-screen bg-[#f3f4f6] flex items-center justify-center p-6">
+    <div className="min-h-screen bg-[#eef1f5] flex items-center justify-center p-8">
 
-      <div className="relative w-full max-w-[520px] bg-white rounded-[24px] shadow-2xl shadow-slate-300/60 p-10">
+      <div className="relative w-full max-w-[600px] bg-white rounded-[28px] shadow-2xl shadow-slate-400/30 p-10 sm:p-12">
+
         {/* Close Button */}
-        <button
+        <buttonogo
           type="button"
           aria-label="Close"
-          className="absolute top-6 right-6 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-700 flex items-center justify-center transition-colors"
+          className="absolute top-7 right-7 w-11 h-11 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-700 flex items-center justify-center transition-colors"
         >
           <X className="w-5 h-5" />
         </button>
 
-        {/* Icon + Heading */}
-        <div className="flex flex-col items-center text-center gap-4 mb-10">
-          <div className="w-[72px] h-[72px] rounded-full bg-blue-600 flex items-center justify-center shadow-xl shadow-blue-600/30">
-            <Lock className="text-white w-8 h-8" />
+{/* Header */}
+        <div className="flex items-center gap-5 mb-10">
+          <div className="w-[60px] h-[60px] rounded-full border-2 border-blue-600 flex items-center justify-center shrink-0">
+            <Lock className="text-blue-600 w-7 h-7" />
           </div>
 
           <div>
-            <h1 className="text-5xl font-bold text-gray-900">
+<h1 className="text-[32px] font-bold text-gray-900 leading-tight">
               Welcome Back
             </h1>
-
-            <p className="text-gray-500 text-lg mt-2">
+            <p className="text-gray-500 text-lg mt-1">
               Login to your account
             </p>
           </div>
-
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-{/* Email */}
+        <form onSubmit={handleSubmit} className="space-y-5">
+          {/* Email */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-3">
-              Email
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Email Address
             </label>
             <div className="relative">
               <input
@@ -95,20 +93,23 @@ function Login() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="Enter your email"
-                className="w-full h-14 rounded-xl border border-gray-300 py-3 px-4 text-base placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 bg-slate-50 focus:bg-white transition-colors"
+                placeholder="user@example.com"
+                className="w-full h-[52px] rounded-xl border border-gray-300 py-3 px-4 pr-12 text-base placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 bg-white transition-colors"
               />
+              {formData.email && !errors.email && (
+                <CheckCircle2 className="absolute right-4 top-1/2 -translate-y-1/2 text-green-500 w-5 h-5" />
+              )}
             </div>
             {errors.email ? (
-              <p className="text-red-500 text-sm mt-2">{errors.email}</p>
+              <p className="text-red-500 text-sm mt-1.5">{errors.email}</p>
             ) : formData.email ? (
-              <p className="text-green-500 text-sm mt-2">Email looks good!</p>
+              <p className="text-green-500 text-sm mt-1.5">Looks good!</p>
             ) : null}
           </div>
 
           {/* Password */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-3">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Password
             </label>
             <div className="relative">
@@ -118,7 +119,7 @@ function Login() {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Enter your password"
-                className="w-full h-14 rounded-xl border border-gray-300 py-3 pl-4 pr-12 text-base placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 bg-slate-50 focus:bg-white transition-colors"
+                className="w-full h-[52px] rounded-xl border border-gray-300 py-3 pl-4 pr-14 text-base placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 bg-white transition-colors"
               />
               <button
                 type="button"
@@ -129,14 +130,14 @@ function Login() {
               </button>
             </div>
             {errors.password ? (
-              <p className="text-red-500 text-sm mt-2">{errors.password}</p>
+              <p className="text-red-500 text-sm mt-1.5">{errors.password}</p>
             ) : formData.password ? (
-              <p className="text-green-500 text-sm mt-2">Password is valid</p>
+              <p className="text-green-500 text-sm mt-1.5">Password looks good!</p>
             ) : null}
           </div>
 
-{/* Remember Me + Forgot Password */}
-          <div className="flex items-center justify-between py-5 pr-10 mb-5">
+          {/* Remember Me + Forgot Password */}
+          <div className="flex items-center justify-between pt-1 pb-2">
             <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
               <input
                 type="checkbox"
@@ -144,14 +145,15 @@ function Login() {
               />
               Remember me
             </label>
-            <a href="#" className="text-sm text-blue-600 hover:text-blue-700 font-medium">
+            <a href="#" className="text-sm text-blue-600 hover:text-blue-700 font-medium whitespace-nowrap">
               Forgot Password?
             </a>
           </div>
 
+          {/* Login Button */}
           <button
             type="submit"
-            className="w-full h-14 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white text-lg font-semibold flex items-center justify-center gap-2 shadow-lg shadow-blue-600/30 transition-all hover:shadow-xl hover:shadow-blue-600/30"
+className="w-full h-[52px] rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white text-lg font-semibold flex items-center justify-center gap-2 shadow-lg shadow-blue-600/30 transition-all hover:shadow-xl hover:shadow-blue-600/30"
           >
             <Lock className="w-5 h-5 text-white" />
             Login
@@ -167,7 +169,7 @@ function Login() {
           {/* Google Button */}
           <button
             type="button"
-            className="w-full h-14 rounded-xl border border-gray-300 text-gray-700 text-lg font-semibold flex items-center justify-center gap-2 bg-white hover:bg-gray-50 transition-colors"
+className="w-full h-[52px] rounded-xl border border-gray-300 text-gray-700 text-lg font-semibold flex items-center justify-center gap-2 bg-white hover:bg-gray-50 transition-colors"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
               <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
