@@ -1,5 +1,5 @@
-limport { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Lock,
   Eye,
@@ -18,7 +18,10 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
 
   const [errors, setErrors] = useState({});
-    const handleChange = (e) => {
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -48,6 +51,7 @@ function Login() {
 
     if (Object.keys(newErrors).length === 0) {
       alert("Login Successful!");
+      navigate("/dashboard");
       console.log(formData);
     }
   };
@@ -57,7 +61,7 @@ function Login() {
       <div className="relative w-full max-w-[600px] bg-white rounded-[28px] shadow-2xl shadow-slate-400/30 p-10 sm:p-12">
 
         {/* Close Button */}
-        <buttonogo
+<button
           type="button"
           aria-label="Close"
           className="absolute top-7 right-7 w-11 h-11 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-700 flex items-center justify-center transition-colors"

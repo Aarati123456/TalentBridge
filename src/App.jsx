@@ -6,6 +6,7 @@ import Explore from "./pages/Explore";
 import Dashboard from "./pages/Dashboard";
 import UploadTalent from "./pages/UploadTalent";
 
+
 function App() {
   return (
     <Routes>
