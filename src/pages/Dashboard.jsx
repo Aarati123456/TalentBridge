@@ -21,9 +21,9 @@ const Dashboard = () => {
 
         {/* WELCOME SECTION */}
         <div className="px-6 pt-6">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
-            Welcome back, Aarati!
-          </h1>
+<h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+              Welcome back!
+            </h1>
           <p className="text-gray-500 mt-1">
             Manage your talents and explore new opportunities.
           </p>
