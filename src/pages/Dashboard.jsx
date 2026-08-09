@@ -3,7 +3,6 @@ import DashboardSidebar from "../components/dashboard/DashboardSidebar";
 import Header from "../components/dashboard/Header";
 import StatsSection from "../components/dashboard/StatsSection";
 import RecentTalents from "../components/dashboard/RecentTalents";
-import ProfileCard from "../components/dashboard/ProfileCard";
 import QuickActions from "../components/dashboard/QuickActions";
 import TalentCategories from "../components/dashboard/TalentCategories";
 import RecentActivity from "../components/dashboard/RecentActivity";
@@ -32,10 +31,9 @@ const Dashboard = () => {
         {/* STATISTICS */}
         <StatsSection />
 
-        {/* RECENT TALENTS + PROFILE CARD */}
+{/* RECENT TALENTS */}
         <div className="px-6 mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
           <RecentTalents />
-          <ProfileCard />
         </div>
 
         {/* QUICK ACTIONS + TALENT CATEGORIES */}
