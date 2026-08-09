@@ -17,18 +17,20 @@ const ProfileCard = () => {
           Creative soul passionate about singing, photography and building
           beautiful web experiences.
         </p>
-        <div className="grid grid-cols-3 gap-4 w-full mt-6">
+        <div className="flex items-center justify-center gap-6 w-full mt-5 border-y border-gray-100 py-3">
           <div className="text-center">
-            <p className="text-lg font-bold text-gray-900">128</p>
-            <p className="text-xs text-gray-500">Followers</p>
+            <p className="text-lg font-bold text-gray-900 leading-none">128</p>
+            <p className="text-xs text-gray-400 mt-1">Followers</p>
           </div>
+          <div className="w-px h-8 bg-gray-200"></div>
           <div className="text-center">
-            <p className="text-lg font-bold text-gray-900">56</p>
-            <p className="text-xs text-gray-500">Following</p>
+            <p className="text-lg font-bold text-gray-900 leading-none">56</p>
+            <p className="text-xs text-gray-400 mt-1">Following</p>
           </div>
+          <div className="w-px h-8 bg-gray-200"></div>
           <div className="text-center">
-            <p className="text-lg font-bold text-gray-900">24</p>
-            <p className="text-xs text-gray-500">Talents</p>
+            <p className="text-lg font-bold text-gray-900 leading-none">24</p>
+            <p className="text-xs text-gray-400 mt-1">Talents</p>
           </div>
         </div>
         <Link
