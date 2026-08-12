@@ -1,15 +1,10 @@
 
-import singing from "../../assets/images/singing.jpg";
-import coding from "../../assets/images/coding.jpg";
-import photography from "../../assets/images/photography.jpg";
-import art from "../../assets/images/art.jpg";
-
 export const recentTalents = [
   {
     id: 1,
     title: "Melodic Voice Performance",
     category: "Singing",
-    image: singing,
+    image: "/image/singing.jpeg",
     views: 120,
     likes: 45,
     comments: 8,
@@ -18,7 +13,7 @@ export const recentTalents = [
     id: 2,
     title: "E-commerce Website",
     category: "Web Development",
-    image: coding,
+    image: "/image/coding.jpeg",
     views: 98,
     likes: 38,
     comments: 6,
@@ -27,7 +22,7 @@ export const recentTalents = [
     id: 3,
     title: "Nature Photography",
     category: "Photography",
-    image: photography,
+    image: "/image/photography.jpg",
     views: 85,
     likes: 27,
     comments: 5,
@@ -36,7 +31,7 @@ export const recentTalents = [
     id: 4,
     title: "Pencil Sketch Art",
     category: "Art",
-    image: art,
+    image: "/image/art.jpg",
     views: 72,
     likes: 21,
     comments: 4,
