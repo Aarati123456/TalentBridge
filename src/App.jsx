@@ -5,7 +5,7 @@ import Login from "./pages/Login";
 import Explore from "./pages/Explore";
 import Dashboard from "./pages/Dashboard";
 import UploadTalent from "./pages/UploadTalent";
-
+import Sidebar from "./components/Sidebar";
 
 function App() {
   return (
