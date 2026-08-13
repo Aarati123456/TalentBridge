@@ -53,18 +53,15 @@ const menuItems = [
 
 function Sidebar() {
   return (
-    <aside className="w-[325px] min-h-screen bg-white border-r border-gray-200 px-3 py-8 flex flex-col">
-      
-      {/* Logo */}
-      <div className="flex items-center gap-4 px-3 mb-10">
-        <FiStar className="text-blue-600 text-[34px]" />
-        <h1 className="text-[28px] font-bold text-[#17335f]">
-          TalentBridge
-        </h1>
+    <aside className="sidebar">
+      {/* Logo (matches original Dashboard.css selectors) */}
+      <div className="sidebar-logo">
+        <FiStar />
+        <span>TalentBridge</span>
       </div>
 
-      {/* Navigation */}
-      <nav className="flex-1 space-y-2">
+      {/* Navigation - use original class names so existing CSS applies */}
+      <nav className="sidebar-nav">
         {menuItems.map((item) => {
           const Icon = item.icon;
 
@@ -73,46 +70,29 @@ function Sidebar() {
               key={item.name}
               to={item.path}
               className={({ isActive }) =>
-                `relative flex items-center gap-5 px-4 py-4 rounded-xl text-[18px] transition-all ${
-                  isActive
-                    ? "bg-blue-600 text-white"
-                    : "text-[#17243a] hover:bg-gray-50"
-                }`
+                `nav-item${isActive ? " active" : ""}`
               }
             >
-              <Icon className="text-[25px]" />
-
+              <Icon />
               <span>{item.name}</span>
 
               {item.badge && (
-                <span className="absolute right-4 top-1/2 -translate-y-1/2 bg-blue-600 text-white text-xs min-w-[27px] h-[27px] flex items-center justify-center rounded-lg">
-                  {item.badge}
-                </span>
+                <span className="badge">{item.badge}</span>
               )}
             </NavLink>
           );
         })}
       </nav>
 
-      {/* Bottom Card */}
-      <div className="bg-[#f2f2ff] rounded-xl p-5 mt-5">
-        <div className="flex justify-center mb-4">
-          <FiUploadCloud className="text-yellow-500 text-[52px]" />
+      {/* Bottom card - use original class name */}
+      <div className="profile-card">
+        <div className="trophy">
+          <FiUploadCloud />
         </div>
-
-        <h3 className="text-[18px] font-medium text-gray-900 mb-3">
-          Showcase your talent
-        </h3>
-
-        <p className="text-gray-600 leading-7 mb-5">
-          Upload your talent and get discovered.
-        </p>
-
-        <NavLink
-          to="/upload-talent"
-          className="block text-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg"
-        >
-          Upload Now
+        <h4>Showcase your talent</h4>
+        <p>Upload your talent and get discovered.</p>
+        <NavLink to="/upload-talent">
+          <button>Upload Now</button>
         </NavLink>
       </div>
     </aside>

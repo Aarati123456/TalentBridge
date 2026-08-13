@@ -4,10 +4,10 @@ import Sidebar from "./Sidebar";
 
 function DashboardLayout() {
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="dashboard">
       <Sidebar />
 
-      <main className="flex-1">
+      <main className="main-content">
         <Outlet />
       </main>
     </div>
