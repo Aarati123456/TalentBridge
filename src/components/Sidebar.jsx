@@ -43,18 +43,28 @@ const menuItems = [
     path: "/messages",
     icon: FiMessageSquare,
   },
+  {
+    name: "Notifications",
+    path: "/notifications",
+    icon: FiBell,
+  },
+  {
+    name: "Profile",
+    path: "/profile",
+    icon: FiUser,
+  },
 ];
 
 function Sidebar() {
   return (
     <aside className="sidebar">
-      {/* Logo (matches original Dashboard.css selectors) */}
+      {/* Logo */}
       <div className="sidebar-logo">
         <FiStar />
         <span>TalentBridge</span>
       </div>
 
-      {/* Navigation - use original class names so existing CSS applies */}
+      {/* Navigation */}
       <nav className="sidebar-nav">
         {menuItems.map((item) => {
           const Icon = item.icon;
@@ -78,13 +88,16 @@ function Sidebar() {
         })}
       </nav>
 
-      {/* Bottom card - use original class name */}
+      {/* Bottom card */}
       <div className="profile-card">
         <div className="trophy">
           <FiUploadCloud />
         </div>
+
         <h4>Showcase your talent</h4>
+
         <p>Upload your talent and get discovered.</p>
+
         <NavLink to="/upload-talent">
           <button>Upload Now</button>
         </NavLink>

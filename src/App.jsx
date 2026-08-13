@@ -10,7 +10,7 @@ import MyTalents from "./pages/MyTalents";
 import Categories from "./pages/Categories";
 import Messages from "./pages/Messages";
 import Notifications from "./pages/Notifications";
-
+import Profile from "./pages/Profile";
 import DashboardLayout from "./components/DashboardLayout";
 
 function App() {
@@ -30,6 +30,7 @@ function App() {
         <Route path="/categories" element={<Categories />} />
         <Route path="/messages" element={<Messages />} />
         <Route path="/notifications" element={<Notifications />} />
+        <Route path="/profile" element={<Profile />} />
       </Route>
     </Routes>
   );
