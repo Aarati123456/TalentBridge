@@ -20,7 +20,7 @@ const menuItems = [
   },
   {
     name: "Explore Talents",
-    path: "/explore",
+    path: "/explore-talents",
     icon: FiCompass,
   },
   {
@@ -30,7 +30,7 @@ const menuItems = [
   },
   {
     name: "Upload Talent",
-    path: "/upload",
+    path: "/upload-talent",
     icon: FiUpload,
   },
   {
@@ -109,7 +109,7 @@ function Sidebar() {
         </p>
 
         <NavLink
-          to="/upload"
+          to="/upload-talent"
           className="block text-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg"
         >
           Upload Now

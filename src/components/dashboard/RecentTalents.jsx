@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { Eye, Heart, MessageCircle } from "lucide-react";
 import { recentTalents } from "./data.jsx";
 
@@ -13,7 +13,7 @@ const RecentTalents = () => {
         </h2>
 
         <Link
-          to="/explore"
+          to="/explore-talents"
           className="text-sm text-indigo-600 font-medium hover:text-indigo-700"
         >
           View All
