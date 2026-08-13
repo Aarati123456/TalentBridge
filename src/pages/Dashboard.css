@@ -32,6 +32,9 @@ button {
   left: 0;
   top: 0;
   bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .sidebar-logo {
@@ -50,9 +53,8 @@ button {
 }
 
 .sidebar-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
+  /* use normal document flow so the profile card appears directly after the nav items */
+  display: block;
 }
 
 .nav-item {
@@ -67,6 +69,8 @@ button {
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
+  /* small vertical spacing between nav items so the profile card follows closely */
+  margin-bottom: 8px;
 }
 
 .nav-item svg {
@@ -108,10 +112,8 @@ button {
 /* ================= SIDEBAR CARD ================= */
 
 .profile-card {
-  position: absolute;
-  left: 18px;
-  right: 18px;
-  bottom: 20px;
+  /* place card in normal flow directly after navigation for compact spacing */
+  margin-top: 18px;
   padding: 18px;
   border-radius: 10px;
   background: #f4f4ff;

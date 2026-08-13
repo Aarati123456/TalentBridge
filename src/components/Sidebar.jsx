@@ -43,12 +43,6 @@ const menuItems = [
     path: "/messages",
     icon: FiMessageSquare,
   },
-  {
-    name: "Notifications",
-    path: "/notifications",
-    icon: FiBell,
-    badge: 3,
-  },
 ];
 
 function Sidebar() {
