@@ -52,10 +52,44 @@ button {
   stroke-width: 2;
 }
 
-.sidebar-nav {
-  /* use normal document flow so the profile card appears directly after the nav items */
-  display: block;
+/* Section headings inside the sidebar (subtle and secondary) */
+.sidebar-section-heading {
+  font-size: 11px;
+  color: #64748b;
+  padding: 6px 10px;
+  margin-top: 12px;
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
 }
+
+.sidebar-section {
+  /* keep sections visually separated from each other */
+  padding-bottom: 6px;
+}
+
+.sidebar-nav {
+  /* make nav take remaining sidebar space so the bottom card stays fixed at bottom */
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding-right: 6px; /* avoid overlap with scrollbar */
+}
+
+.sidebar-section {
+  margin-bottom: 16px;
+}
+
+.sidebar-section-heading {
+  font-size: 11px;
+  color: #74829a;
+  margin: 6px 8px 8px;
+  letter-spacing: 0.6px;
+  font-weight: 600;
+}
+
 
 .nav-item {
   height: 48px;
@@ -112,12 +146,13 @@ button {
 /* ================= SIDEBAR CARD ================= */
 
 .profile-card {
-  /* place card in normal flow directly after navigation for compact spacing */
-  margin-top: 18px;
+  /* pin card to bottom of sidebar */
+  margin-top: auto;
   padding: 18px;
   border-radius: 10px;
   background: #f4f4ff;
 }
+
 
 .trophy {
   display: flex;
@@ -253,8 +288,9 @@ button {
 
 .page-content {
   padding: 30px 35px;
-  max-width: 1400px;
-  margin: auto;
+  /* allow content to use available width instead of a tight max-width */
+  max-width: none;
+  margin: 0;
 }
 
 .welcome {
@@ -277,7 +313,7 @@ button {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 18px;
   margin-bottom: 25px;
 }
@@ -340,8 +376,10 @@ button {
 
 .content-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  /* allow left column to take available space, keep right column at comfortable width */
+  grid-template-columns: 1fr 420px;
   gap: 18px;
+  align-items: start;
 }
 
 .panel {
@@ -349,6 +387,8 @@ button {
   border: 1px solid #e7edf5;
   border-radius: 10px;
   padding: 18px;
+  /* prevent content inside grid items from forcing overflow */
+  min-width: 0;
 }
 
 .panel-header {
@@ -394,10 +434,21 @@ button {
   object-fit: cover;
   border-radius: 7px;
   background: #eef2f7;
+  /* keep image from shrinking when container is tight */
+  flex-shrink: 0;
 }
 
 .talent-info {
   flex: 1;
+  min-width: 0; /* allow truncation inside flex */
+}
+
+.talent-info h4 {
+  margin: 0 0 5px;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .talent-info h4 {
@@ -472,7 +523,7 @@ button {
 
 .categories-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 12px;
   margin-top: 17px;
 }
@@ -541,7 +592,7 @@ button {
 
 .quick-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 12px;
 }
 

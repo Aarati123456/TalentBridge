@@ -9,50 +9,27 @@ import {
   FiGrid,
   FiMessageSquare,
   FiBell,
+  FiUsers,
   FiUploadCloud,
 } from "react-icons/fi";
 
-const menuItems = [
-  {
-    name: "Dashboard",
-    path: "/dashboard",
-    icon: FiHome,
-  },
-  {
-    name: "Explore Talents",
-    path: "/explore-talents",
-    icon: FiCompass,
-  },
-  {
-    name: "My Talents",
-    path: "/my-talents",
-    icon: FiUser,
-  },
-  {
-    name: "Upload Talent",
-    path: "/upload-talent",
-    icon: FiUpload,
-  },
-  {
-    name: "Categories",
-    path: "/categories",
-    icon: FiGrid,
-  },
-  {
-    name: "Messages",
-    path: "/messages",
-    icon: FiMessageSquare,
-  },
-  {
-    name: "Notifications",
-    path: "/notifications",
-    icon: FiBell,
-  },
-  {
-    name: "Profile",
-    path: "/profile",
-    icon: FiUser,
-  },
+const mainItems = [
+  { name: "Dashboard", path: "/dashboard", icon: FiHome },
+  { name: "Explore Talents", path: "/explore-talents", icon: FiCompass },
+  { name: "Categories", path: "/categories", icon: FiGrid },
+];
+
+const accountItems = [
+  { name: "My Talents", path: "/my-talents", icon: FiUser },
+  { name: "Messages", path: "/messages", icon: FiMessageSquare },
+  { name: "Notifications", path: "/notifications", icon: FiBell },
+  { name: "Profile", path: "/profile", icon: FiUser },
+];
+
+const adminItems = [
+  { name: "User Management", path: "/user-management", icon: FiUsers },
+  { name: "Talent Management", path: "/talent-management", icon: FiGrid },
+  { name: "Reports", path: "/reports", icon: FiUpload },
 ];
 
 function Sidebar() {
@@ -64,29 +41,65 @@ function Sidebar() {
         <span>TalentBridge</span>
       </div>
 
-      {/* Navigation */}
-      <nav className="sidebar-nav">
-        {menuItems.map((item) => {
-          const Icon = item.icon;
+      {/* MAIN section */}
+      <div className="sidebar-section">
+        <div className="sidebar-section-heading">MAIN</div>
+        <nav className="sidebar-nav">
+          {mainItems.map((item) => {
+            const Icon = item.icon;
+            return (
+              <NavLink
+                key={item.name}
+                to={item.path}
+                className={({ isActive }) => `nav-item${isActive ? " active" : ""}`}
+              >
+                <Icon />
+                <span>{item.name}</span>
+              </NavLink>
+            );
+          })}
+        </nav>
+      </div>
 
-          return (
-            <NavLink
-              key={item.name}
-              to={item.path}
-              className={({ isActive }) =>
-                `nav-item${isActive ? " active" : ""}`
-              }
-            >
-              <Icon />
-              <span>{item.name}</span>
+      {/* MY ACCOUNT section */}
+      <div className="sidebar-section">
+        <div className="sidebar-section-heading">MY ACCOUNT</div>
+        <nav className="sidebar-nav">
+          {accountItems.map((item) => {
+            const Icon = item.icon;
+            return (
+              <NavLink
+                key={item.name}
+                to={item.path}
+                className={({ isActive }) => `nav-item${isActive ? " active" : ""}`}
+              >
+                <Icon />
+                <span>{item.name}</span>
+              </NavLink>
+            );
+          })}
+        </nav>
+      </div>
 
-              {item.badge && (
-                <span className="badge">{item.badge}</span>
-              )}
-            </NavLink>
-          );
-        })}
-      </nav>
+      {/* ADMIN section */}
+      <div className="sidebar-section">
+        <div className="sidebar-section-heading">ADMIN</div>
+        <nav className="sidebar-nav">
+          {adminItems.map((item) => {
+            const Icon = item.icon;
+            return (
+              <NavLink
+                key={item.name}
+                to={item.path}
+                className={({ isActive }) => `nav-item${isActive ? " active" : ""}`}
+              >
+                <Icon />
+                <span>{item.name}</span>
+              </NavLink>
+            );
+          })}
+        </nav>
+      </div>
 
       {/* Bottom card */}
       <div className="profile-card">

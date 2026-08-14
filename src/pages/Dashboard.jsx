@@ -33,7 +33,7 @@ import "./Dashboard.css";
 const recentTalents = [
   {
     title: "Melodic Voice Performance",
-    name: "Sunita Rai",
+    name: "Soni Limbu",
     category: "Singing",
     time: "2h ago",
     likes: 45,
@@ -41,15 +41,15 @@ const recentTalents = [
   },
   {
     title: "E-commerce Website",
-    name: "Bimal Shrestha",
+    name: "Soni Limbu",
     category: "Web Development",
     time: "5h ago",
-    likes: 38,
+    likes: 36,
     image: "/images/coding.jpg",
   },
   {
     title: "Nature Photography",
-    name: "Prabin Gurung",
+    name: "Smita Poudel",
     category: "Photography",
     time: "1d ago",
     likes: 27,
@@ -57,7 +57,7 @@ const recentTalents = [
   },
   {
     title: "Pencil Sketch Art",
-    name: "Anjana Tamang",
+    name: "Swagat Shrestha",
     category: "Art",
     time: "1d ago",
     likes: 21,
@@ -78,12 +78,10 @@ const categories = [
 
 function Dashboard() {
   return (
-    <div className="dashboard">
-
-
+    <>
 
       {/* ================= MAIN ================= */}
-      <main className="main-content">
+      
 
         {/* HEADER */}
         <header className="top-header">
@@ -130,7 +128,7 @@ function Dashboard() {
           {/* WELCOME */}
           <div className="welcome">
             <h1>
-              Welcome back, Aarati! 👋
+              Welcome back, Aarati! 
             </h1>
 
             <p>
@@ -380,9 +378,8 @@ function Dashboard() {
 
         </section>
 
-      </main>
+      </>
 
-    </div>
   );
 }
 

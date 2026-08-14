@@ -11,6 +11,7 @@ import Categories from "./pages/Categories";
 import Messages from "./pages/Messages";
 import Notifications from "./pages/Notifications";
 import Profile from "./pages/Profile";
+import UserManagement from "./pages/UserManagement";
 import DashboardLayout from "./components/DashboardLayout";
 
 function App() {
@@ -31,6 +32,10 @@ function App() {
         <Route path="/messages" element={<Messages />} />
         <Route path="/notifications" element={<Notifications />} />
         <Route path="/profile" element={<Profile />} />
+        <Route
+          path="/user-management"
+          element={<UserManagement />}
+        />
       </Route>
     </Routes>
   );
