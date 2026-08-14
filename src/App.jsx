@@ -13,6 +13,7 @@ import Notifications from "./pages/Notifications";
 import Profile from "./pages/Profile";
 import UserManagement from "./pages/UserManagement";
 import DashboardLayout from "./components/DashboardLayout";
+import TalentManagement from "./pages/TalentManagement";
 
 function App() {
   return (

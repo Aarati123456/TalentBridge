@@ -1,0 +1,416 @@
+.talent-management {
+  padding: 32px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Page Header */
+
+.talent-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.talent-page-header h1 {
+  margin: 0 0 8px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #172554;
+}
+
+.talent-page-header p {
+  margin: 0;
+  color: #64748b;
+  font-size: 15px;
+}
+
+.add-talent-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-talent-btn svg {
+  font-size: 18px;
+}
+
+/* Statistics */
+
+.talent-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.talent-stat-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 90px;
+  box-sizing: border-box;
+}
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.stat-icon.blue {
+  background: #e8f0ff;
+  color: #2563eb;
+}
+
+.stat-icon.green {
+  background: #e8f8ef;
+  color: #16a34a;
+}
+
+.stat-icon.yellow {
+  background: #fff7df;
+  color: #d97706;
+}
+
+.stat-icon.red {
+  background: #ffecec;
+  color: #dc2626;
+}
+
+.talent-stat-card h3 {
+  margin: 0 0 5px;
+  font-size: 25px;
+  color: #0f172a;
+}
+
+.talent-stat-card p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* Filters */
+
+.talent-filter-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.talent-search {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.talent-search svg {
+  position: absolute;
+  left: 14px;
+  color: #94a3b8;
+  font-size: 18px;
+}
+
+.talent-search input {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px 0 42px;
+  border: 1px solid #dbe3ee;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.talent-search input:focus {
+  border-color: #2563eb;
+}
+
+.talent-filter-card select {
+  height: 44px;
+  min-width: 170px;
+  padding: 0 12px;
+  border: 1px solid #dbe3ee;
+  border-radius: 8px;
+  background: white;
+  color: #334155;
+  outline: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Table */
+
+.talent-table-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.talent-table-header {
+  padding: 22px 24px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.talent-table-header h2 {
+  margin: 0 0 5px;
+  font-size: 19px;
+  color: #0f172a;
+}
+
+.talent-table-header p {
+  margin: 0;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.talent-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.talent-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 850px;
+}
+
+.talent-table th {
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e2e8f0;
+  white-space: nowrap;
+}
+
+.talent-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid #eef2f7;
+  color: #334155;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.talent-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+/* Talent Name */
+
+.talent-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 230px;
+}
+
+.talent-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 9px;
+  background: #e8f0ff;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.talent-name span {
+  color: #0f172a;
+  font-weight: 500;
+}
+
+/* Category */
+
+.category-text {
+  color: #475569;
+}
+
+/* Status */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 11px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-badge.approved {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.status-badge.pending {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.status-badge.rejected {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* Actions */
+
+.talent-actions {
+  display: flex;
+  gap: 7px;
+}
+
+.talent-actions button {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #dbe3ee;
+  background: white;
+  color: #475569;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.talent-actions button:hover {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.talent-actions .delete-action:hover {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+/* Empty */
+
+.no-talents {
+  text-align: center !important;
+  padding: 40px !important;
+  color: #64748b !important;
+}
+
+/* Pagination */
+
+.talent-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+}
+
+.talent-pagination p {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.pagination-buttons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pagination-buttons button {
+  min-width: 34px;
+  height: 34px;
+  padding: 0 8px;
+  border: 1px solid #dbe3ee;
+  background: white;
+  color: #475569;
+  border-radius: 7px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination-buttons button:hover {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.pagination-buttons .active-page {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+.pagination-buttons span {
+  color: #64748b;
+  padding: 0 4px;
+}
+
+/* Responsive */
+
+@media (max-width: 1100px) {
+  .talent-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .talent-management {
+    padding: 20px;
+  }
+
+  .talent-page-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .talent-filter-card {
+    flex-direction: column;
+  }
+
+  .talent-filter-card select {
+    width: 100%;
+  }
+
+  .talent-pagination {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 520px) {
+  .talent-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .talent-page-header h1 {
+    font-size: 25px;
+  }
+}

@@ -5,31 +5,71 @@ import {
   FiHome,
   FiCompass,
   FiUser,
-  FiUpload,
   FiGrid,
   FiMessageSquare,
   FiBell,
   FiUsers,
+  FiBarChart2,
   FiUploadCloud,
 } from "react-icons/fi";
 
 const mainItems = [
-  { name: "Dashboard", path: "/dashboard", icon: FiHome },
-  { name: "Explore Talents", path: "/explore-talents", icon: FiCompass },
-  { name: "Categories", path: "/categories", icon: FiGrid },
+  {
+    name: "Dashboard",
+    path: "/dashboard",
+    icon: FiHome,
+  },
+  {
+    name: "Explore Talents",
+    path: "/explore-talents",
+    icon: FiCompass,
+  },
+  {
+    name: "Categories",
+    path: "/categories",
+    icon: FiGrid,
+  },
 ];
 
 const accountItems = [
-  { name: "My Talents", path: "/my-talents", icon: FiUser },
-  { name: "Messages", path: "/messages", icon: FiMessageSquare },
-  { name: "Notifications", path: "/notifications", icon: FiBell },
-  { name: "Profile", path: "/profile", icon: FiUser },
+  {
+    name: "My Talents",
+    path: "/my-talents",
+    icon: FiUser,
+  },
+  {
+    name: "Messages",
+    path: "/messages",
+    icon: FiMessageSquare,
+  },
+  {
+    name: "Notifications",
+    path: "/notifications",
+    icon: FiBell,
+  },
+  {
+    name: "Profile",
+    path: "/profile",
+    icon: FiUser,
+  },
 ];
 
 const adminItems = [
-  { name: "User Management", path: "/user-management", icon: FiUsers },
-  { name: "Talent Management", path: "/talent-management", icon: FiGrid },
-  { name: "Reports", path: "/reports", icon: FiUpload },
+  {
+    name: "User Management",
+    path: "/user-management",
+    icon: FiUsers,
+  },
+  {
+    name: "Talent Management",
+    path: "/talent-management",
+    icon: FiGrid,
+  },
+  {
+    name: "Reports",
+    path: "/reports",
+    icon: FiBarChart2,
+  },
 ];
 
 function Sidebar() {
@@ -41,17 +81,21 @@ function Sidebar() {
         <span>TalentBridge</span>
       </div>
 
-      {/* MAIN section */}
+      {/* MAIN */}
       <div className="sidebar-section">
         <div className="sidebar-section-heading">MAIN</div>
+
         <nav className="sidebar-nav">
           {mainItems.map((item) => {
             const Icon = item.icon;
+
             return (
               <NavLink
                 key={item.name}
                 to={item.path}
-                className={({ isActive }) => `nav-item${isActive ? " active" : ""}`}
+                className={({ isActive }) =>
+                  `nav-item${isActive ? " active" : ""}`
+                }
               >
                 <Icon />
                 <span>{item.name}</span>
@@ -61,17 +105,21 @@ function Sidebar() {
         </nav>
       </div>
 
-      {/* MY ACCOUNT section */}
+      {/* MY ACCOUNT */}
       <div className="sidebar-section">
         <div className="sidebar-section-heading">MY ACCOUNT</div>
+
         <nav className="sidebar-nav">
           {accountItems.map((item) => {
             const Icon = item.icon;
+
             return (
               <NavLink
                 key={item.name}
                 to={item.path}
-                className={({ isActive }) => `nav-item${isActive ? " active" : ""}`}
+                className={({ isActive }) =>
+                  `nav-item${isActive ? " active" : ""}`
+                }
               >
                 <Icon />
                 <span>{item.name}</span>
@@ -81,17 +129,21 @@ function Sidebar() {
         </nav>
       </div>
 
-      {/* ADMIN section */}
+      {/* ADMIN */}
       <div className="sidebar-section">
         <div className="sidebar-section-heading">ADMIN</div>
+
         <nav className="sidebar-nav">
           {adminItems.map((item) => {
             const Icon = item.icon;
+
             return (
               <NavLink
                 key={item.name}
                 to={item.path}
-                className={({ isActive }) => `nav-item${isActive ? " active" : ""}`}
+                className={({ isActive }) =>
+                  `nav-item${isActive ? " active" : ""}`
+                }
               >
                 <Icon />
                 <span>{item.name}</span>
@@ -101,7 +153,7 @@ function Sidebar() {
         </nav>
       </div>
 
-      {/* Bottom card */}
+      {/* Bottom Card */}
       <div className="profile-card">
         <div className="trophy">
           <FiUploadCloud />
