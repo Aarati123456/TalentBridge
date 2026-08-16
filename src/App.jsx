@@ -18,6 +18,7 @@ import TalentManagement from "./pages/TalentManagement";
 function App() {
   return (
     <Routes>
+
       {/* Public Pages */}
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
@@ -33,11 +34,18 @@ function App() {
         <Route path="/messages" element={<Messages />} />
         <Route path="/notifications" element={<Notifications />} />
         <Route path="/profile" element={<Profile />} />
+
         <Route
           path="/user-management"
           element={<UserManagement />}
         />
+
+        <Route
+          path="/talent-management"
+          element={<TalentManagement />}
+        />
       </Route>
+
     </Routes>
   );
 }

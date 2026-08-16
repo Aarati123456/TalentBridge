@@ -75,6 +75,7 @@ const adminItems = [
 function Sidebar() {
   return (
     <aside className="sidebar">
+
       {/* Logo */}
       <div className="sidebar-logo">
         <FiStar />
@@ -167,6 +168,7 @@ function Sidebar() {
           <button>Upload Now</button>
         </NavLink>
       </div>
+
     </aside>
   );
 }
