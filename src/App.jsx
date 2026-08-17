@@ -45,6 +45,8 @@ function App() {
           path="/talent-management"
           element={<TalentManagement />}
         />
+
+        <Route path="/reports" element={<Reports />} />
       </Route>
 
     </Routes>

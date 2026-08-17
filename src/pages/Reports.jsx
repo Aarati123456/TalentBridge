@@ -11,6 +11,7 @@ import {
   FiEye,
   FiMessageCircle,
   FiStar,
+  FiChevronDown,
 } from "react-icons/fi";
 
 import "./Reports.css";
@@ -56,6 +57,10 @@ const topTalents = [
     likes: "86",
     rating: "4.5",
   },
+ ];
+
+const growthData = [
+  180, 280, 290, 430, 370, 600, 560, 740, 650, 820, 960, 900, 1120, 1160, 1380
 ];
 
 function Reports() {
@@ -66,21 +71,22 @@ function Reports() {
       <div className="reports-header">
         <div>
           <h1>Reports & Analytics</h1>
-          <p>
-            Monitor platform performance and user engagement
-          </p>
+          <p>Overview of platform activity and key metrics</p>
         </div>
 
-        <div className="reports-header-actions">
+        <div className="reports-header-right">
           <button className="date-btn">
             <FiCalendar />
             Last 30 Days
           </button>
 
-          <button className="export-btn">
-            <FiDownload />
-            Export Report
-          </button>
+          <div className="admin-profile">
+            <div className="admin-avatar">A</div>
+            <div className="admin-info">
+              <div className="admin-name">Admin</div>
+            </div>
+            <FiChevronDown />
+          </div>
         </div>
       </div>
 
@@ -165,11 +171,6 @@ function Reports() {
               <p>New registered users over the last 30 days</p>
             </div>
 
-            <select>
-              <option>Last 30 Days</option>
-              <option>Last 7 Days</option>
-              <option>Last 3 Months</option>
-            </select>
           </div>
 
           <div className="fake-chart">
@@ -185,40 +186,83 @@ function Reports() {
 
             <div className="chart-area">
 
-              <div className="chart-grid-line line1"></div>
-              <div className="chart-grid-line line2"></div>
-              <div className="chart-grid-line line3"></div>
-              <div className="chart-grid-line line4"></div>
-              <div className="chart-grid-line line5"></div>
+            <div className="chart-container">
+              {/* Simple fixed SVG chart per instructions */}
+              <svg viewBox="0 0 700 180" preserveAspectRatio="none" width="100%" height="100%">
+                {
+                   (() => {
+                     const left = 40; const right = 10; const top = 10; const bottom = 30;
+                     const graphW = 700 - left - right; // 650
+                     const graphH = 180 - top - bottom; // 140
+                     const max = 1500;
+                     const n = growthData.length; // 15
 
-              <svg
-                className="growth-line"
-                viewBox="0 0 700 240"
-                preserveAspectRatio="none"
-              >
-                <polyline
-                  points="0,205 70,190 140,195 210,165 280,175 350,140 420,150 490,105 560,115 630,70 700,45"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                />
+                     // compute points
+                     const points = growthData.map((v, i) => {
+                       const x = left + (i * (graphW / (n - 1)));
+                       const y = 140 - (v / max) * 120; // per step 4
+                       return { x, y };
+                     });
 
-                <polyline
-                  points="0,240 0,205 70,190 140,195 210,165 280,175 350,140 420,150 490,105 560,115 630,70 700,45 700,240"
-                  fill="currentColor"
-                  opacity="0.08"
-                />
+                     // area path
+                     const areaPath = points.map((p, i) => (i === 0 ? `M ${p.x} ${p.y}` : `L ${p.x} ${p.y}`)).join(' ') +
+                       ` L ${points[points.length - 1].x} 140 L ${points[0].x} 140 Z`;
+
+                     // line path
+                     const linePath = points.map((p, i) => (i === 0 ? `M ${p.x} ${p.y}` : `L ${p.x} ${p.y}`)).join(' ');
+
+                     // grid y positions for ticks 1500..0
+                     const ticks = [1500,1200,900,600,300,0];
+                     const tickYs = ticks.map(t => 140 - (t / max) * 120);
+
+                     // x labels positions (7 labels) evenly distributed
+                     const labels = ["May 20","May 25","May 30","Jun 5","Jun 10","Jun 15","Jun 20"];
+                     const labelXs = labels.map((l, i) => left + (i * (graphW / (labels.length - 1))));
+
+                     return (
+                       <g>
+                         {/* grid lines */}
+                         {tickYs.map((y, idx) => (
+                           <line key={'g'+idx} x1={left} x2={700 - right} y1={y} y2={y} stroke="#E8EEF7" strokeWidth="1" />
+                         ))}
+
+                         {/* area */}
+                         <path d={areaPath} fill="rgba(59,130,246,0.12)" stroke="none" />
+
+                         {/* line */}
+                         <path d={linePath} fill="none" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+
+                         {/* points */}
+                         {points.map((p, i) => (
+                           <circle key={'p'+i} cx={p.x} cy={p.y} r={2.5} fill="#3B82F6" />
+                         ))}
+
+                         {/* x labels */}
+                         {labels.map((lbl, i) => (
+                           <text key={'l'+i} x={labelXs[i]} y={160} fontSize="8" fill="#64748B" textAnchor="middle">{lbl}</text>
+                         ))}
+
+                         {/* y labels */}
+                         {ticks.map((t, i) => {
+                           const y = tickYs[i];
+                           return <text key={'y'+i} x={left - 6} y={y + 4} fontSize="8" fill="#64748B" textAnchor="end">{t}</text>;
+                         })}
+                       </g>
+                     );
+                   })()
+                }
               </svg>
+            </div>
 
-              <div className="chart-labels">
-                <span>May 20</span>
-                <span>May 25</span>
-                <span>May 30</span>
-                <span>Jun 5</span>
-                <span>Jun 10</span>
-                <span>Jun 15</span>
-                <span>Jun 20</span>
-              </div>
+            <div className="chart-labels">
+              <span>May 20</span>
+              <span>May 25</span>
+              <span>May 30</span>
+              <span>Jun 5</span>
+              <span>Jun 10</span>
+              <span>Jun 15</span>
+              <span>Jun 20</span>
+            </div>
 
             </div>
           </div>
@@ -238,10 +282,6 @@ function Reports() {
           <div className="category-chart">
 
             <div className="donut-chart">
-              <div className="donut-center">
-                <strong>642</strong>
-                <span>Talents</span>
-              </div>
             </div>
 
           </div>
@@ -267,63 +307,6 @@ function Reports() {
 
       </div>
 
-      {/* ENGAGEMENT */}
-      <div className="engagement-card">
-
-        <div className="analytics-card-header">
-          <div>
-            <h3>Platform Engagement</h3>
-            <p>Overall activity across the platform</p>
-          </div>
-
-          <select>
-            <option>This Month</option>
-            <option>Last Month</option>
-            <option>This Year</option>
-          </select>
-        </div>
-
-        <div className="engagement-grid">
-
-          <div className="engagement-item">
-            <div className="engagement-item-top">
-              <FiEye />
-              <span>Views</span>
-            </div>
-            <strong>28.4K</strong>
-            <small>+14.8%</small>
-          </div>
-
-          <div className="engagement-item">
-            <div className="engagement-item-top">
-              <FiHeart />
-              <span>Likes</span>
-            </div>
-            <strong>8.6K</strong>
-            <small>+9.3%</small>
-          </div>
-
-          <div className="engagement-item">
-            <div className="engagement-item-top">
-              <FiMessageCircle />
-              <span>Comments</span>
-            </div>
-            <strong>3.2K</strong>
-            <small>+6.7%</small>
-          </div>
-
-          <div className="engagement-item">
-            <div className="engagement-item-top">
-              <FiStar />
-              <span>Ratings</span>
-            </div>
-            <strong>1.8K</strong>
-            <small>+11.2%</small>
-          </div>
-
-        </div>
-
-      </div>
 
       {/* TOP TALENTS */}
       <div className="top-talents-card">
@@ -380,21 +363,21 @@ function Reports() {
 
                   <td>
                     <div className="table-stat">
-                      <FiEye />
+                      <FiEye size={14} />
                       {talent.views}
                     </div>
                   </td>
 
                   <td>
                     <div className="table-stat">
-                      <FiHeart />
+                      <FiHeart size={14} />
                       {talent.likes}
                     </div>
                   </td>
 
                   <td>
                     <div className="rating">
-                      <FiStar />
+                      <FiStar size={14} />
                       {talent.rating}
                     </div>
                   </td>
