@@ -14,6 +14,7 @@ import Profile from "./pages/Profile";
 import UserManagement from "./pages/UserManagement";
 import DashboardLayout from "./components/DashboardLayout";
 import TalentManagement from "./pages/TalentManagement";
+import Reports from "./pages/Reports";
 
 function App() {
   return (
