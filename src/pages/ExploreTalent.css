@@ -1,0 +1,268 @@
+.explore-page {
+  min-height: 100vh;
+  padding: 28px 22px 40px;
+  background: #f8fafc;
+  box-sizing: border-box;
+}
+
+/* Header */
+.explore-header {
+  margin-bottom: 22px;
+}
+
+.explore-header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #172554;
+}
+
+.explore-header p {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* Search */
+.search-box {
+  width: 100%;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #dbe3ef;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+}
+
+.search-box span {
+  font-size: 22px;
+  color: #64748b;
+  line-height: 1;
+}
+
+.search-box input {
+  flex: 1;
+  height: 100%;
+  margin-left: 10px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 13px;
+  color: #172554;
+}
+
+.search-box input::placeholder {
+  color: #94a3b8;
+}
+
+/* Category Buttons */
+.category-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 17px;
+  flex-wrap: wrap;
+}
+
+.category-buttons button {
+  height: 34px;
+  padding: 0 21px;
+  border: 1px solid #dbe3ef;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #172554;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.category-buttons button:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.category-buttons button.active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+}
+
+/* Featured Header */
+.featured-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 21px;
+  margin-bottom: 13px;
+}
+
+.featured-header h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #172554;
+}
+
+.featured-header span {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Talent Grid */
+.talent-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* Talent Card */
+.talent-card {
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.talent-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(15, 23, 42, 0.08);
+}
+
+/* Talent Image */
+.talent-image {
+  position: relative;
+  width: 100%;
+  height: 138px;
+  overflow: hidden;
+}
+
+.talent-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.talent-image span {
+  position: absolute;
+  top: 9px;
+  right: 10px;
+  padding: 5px 10px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #2563eb;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* Card Content */
+.talent-content {
+  padding: 12px 13px 13px;
+}
+
+.talent-content h3 {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 700;
+  color: #172554;
+}
+
+.talent-content p {
+  margin: 5px 0 0;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.talent-content p strong {
+  color: #2563eb;
+  font-weight: 500;
+}
+
+/* Card Footer */
+.talent-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.stats span {
+  font-size: 11px;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.talent-footer button {
+  padding: 7px 11px;
+  border: 1px solid #dbe3ef;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #2563eb;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.talent-footer button:hover {
+  background: #eff6ff;
+  border-color: #2563eb;
+}
+
+/* Empty Result */
+.talent-grid:empty::after {
+  content: "No talents found.";
+  grid-column: 1 / -1;
+  padding: 40px;
+  text-align: center;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .talent-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+  .explore-page {
+    padding: 20px 15px 30px;
+  }
+
+  .talent-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-buttons {
+    gap: 8px;
+  }
+
+  .category-buttons button {
+    padding: 0 15px;
+  }
+
+  .featured-header {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .talent-image {
+    height: 180px;
+  }
+}
