@@ -26,7 +26,7 @@ const categoryData = [
 
 const topTalents = [
   {
-    name: "Melodic Voice Performance",
+    name: "Musical Singing",
     creator: "Soni Limbu",
     category: "Singing",
     views: "1,240",

@@ -2,7 +2,7 @@
 export const recentTalents = [
   {
     id: 1,
-    title: "Melodic Voice Performance",
+    title: "Musical Singing",
     category: "Singing",
     image: "/image/singing.jpeg",
     views: 120,

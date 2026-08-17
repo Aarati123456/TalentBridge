@@ -32,7 +32,7 @@ import "./Dashboard.css";
 
 const recentTalents = [
   {
-    title: "Melodic Voice Performance",
+    title: "Musical Singing",
     name: "Soni Limbu",
     category: "Singing",
     time: "2h ago",

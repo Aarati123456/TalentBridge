@@ -26,7 +26,7 @@ import "./TalentManagement.css";
 const talents = [
   {
     id: 1,
-    title: "Melodic Voice Performance",
+    title: "Musical Singing",
     creator: "Soni Limbu",
     time: "2h ago",
     category: "Singing",
@@ -74,7 +74,7 @@ const talents = [
   },
   {
     id: 5,
-    title: "Contemporary Dance",
+    title: "Classical Dance",
     creator: "Pema Lama",
     time: "4d ago",
     category: "Dancing",
